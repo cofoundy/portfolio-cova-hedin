@@ -41,9 +41,10 @@ export const siteConfig = {
 
   languages: [
     { name: "Swedish", flag: "\u{1F1F8}\u{1F1EA}", level: "Native" },
+    { name: "Spanish", flag: "\u{1F1EA}\u{1F1F8}", level: "Native" },
     { name: "English", flag: "\u{1F1EC}\u{1F1E7}", level: "Fluent" },
-    { name: "Spanish", flag: "\u{1F1EA}\u{1F1F8}", level: "Fluent" },
     { name: "Italian", flag: "\u{1F1EE}\u{1F1F9}", level: "Fluent" },
+    { name: "French", flag: "\u{1F1EB}\u{1F1F7}", level: "Conversational" },
     { name: "Quechua", flag: "\u{1F1F5}\u{1F1EA}", level: "Conversational" },
     { name: "Hebrew", flag: "\u{1F1EE}\u{1F1F1}", level: "Conversational" },
   ],
