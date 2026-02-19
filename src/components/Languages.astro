@@ -1,0 +1,29 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="languages" class="py-16 md:py-20" style={`background-color: ${siteConfig.colors.surfaceLight}`}>
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-12 reveal">
+      <p class="font-mono-accent text-xs tracking-widest uppercase mb-3" style={`color: ${siteConfig.colors.primary}`}>
+        Specialties
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold" style={`color: ${siteConfig.colors.primaryDark}`}>
+        Languages I Speak
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      {siteConfig.languages.map((lang: any, i: number) => (
+        <div
+          class={`lang-card reveal-scale stagger-${i + 1} text-center p-6 rounded-2xl border-2 cursor-default`}
+          style={`background-color: ${siteConfig.colors.surfaceLight}; border-color: ${siteConfig.colors.primaryDark}10;`}
+        >
+          <span class="text-4xl md:text-5xl block mb-3">{lang.flag}</span>
+          <p class="font-semibold text-base" style={`color: ${siteConfig.colors.primaryDark}`}>{lang.name}</p>
+          <p class="font-mono-accent text-xs mt-1" style={`color: ${siteConfig.colors.primary}`}>{lang.level}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

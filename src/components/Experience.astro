@@ -1,0 +1,51 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="experience" class="py-16 md:py-20" style={`background-color: ${siteConfig.colors.surface}`}>
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-12 reveal">
+      <p class="font-mono-accent text-xs tracking-widest uppercase mb-3" style={`color: ${siteConfig.colors.primary}`}>
+        Track Record
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold" style={`color: ${siteConfig.colors.primaryDark}`}>
+        Where I've Taught & Created
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {siteConfig.experience.map((exp: any, i: number) => (
+        <a
+          href={exp.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`card-hover reveal stagger-${i + 1} block p-8 rounded-2xl border group`}
+          style={`background-color: ${siteConfig.colors.surfaceLight}; border-color: ${siteConfig.colors.primaryDark}10;`}
+        >
+          <div
+            class="font-mono-accent text-xs tracking-widest uppercase mb-4"
+            style={`color: ${siteConfig.colors.accent}`}
+          >
+            {exp.period}
+          </div>
+          <h3 class="text-xl font-bold mb-1" style={`color: ${siteConfig.colors.primaryDark}`}>
+            {exp.company}
+          </h3>
+          <p class="text-sm font-medium mb-4" style={`color: ${siteConfig.colors.primary}`}>
+            {exp.role}
+          </p>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            {exp.description}
+          </p>
+          <span
+            class="inline-flex items-center gap-1 mt-4 text-sm font-medium group-hover:gap-2 transition-all"
+            style={`color: ${siteConfig.colors.primary}`}
+          >
+            Visit
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+import { siteConfig } from "../config";
+const { testimonials } = siteConfig;
+---
+
+<section id="reviews" class="py-16 md:py-20" style={`background-color: ${siteConfig.colors.surfaceLight}`}>
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 reveal">
+      <p class="font-mono-accent text-xs tracking-widest uppercase mb-3" style={`color: ${siteConfig.colors.primary}`}>
+        Student Reviews
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" style={`color: ${siteConfig.colors.primaryDark}`}>
+        What My Students Say
+      </h2>
+      <div class="flex items-center justify-center gap-3">
+        <span class="text-yellow-400 text-xl">&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</span>
+        <span class="font-mono-accent text-sm font-bold" style={`color: ${siteConfig.colors.primaryDark}`}>
+          {testimonials.totalReviews} reviews &middot; {testimonials.rating}
+        </span>
+      </div>
+    </div>
+
+    <!-- Testimonial Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {testimonials.items.map((t: any, i: number) => (
+        <div
+          class={`testimonial-card card-hover reveal-scale stagger-${i + 1} p-8 rounded-2xl border`}
+          style={`background-color: ${siteConfig.colors.surfaceLight}; border-color: ${siteConfig.colors.primaryDark}10; box-shadow: 0 4px 16px -4px rgba(15, 43, 76, 0.06);`}
+        >
+          <p class="text-gray-600 leading-relaxed text-base mt-6 mb-6">
+            {t.text}
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t" style={`border-color: ${siteConfig.colors.primaryDark}10`}>
+            <div
+              class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold"
+              style={`background-color: ${siteConfig.colors.accent}30; color: ${siteConfig.colors.primaryDark};`}
+            >
+              {t.author.charAt(0)}
+            </div>
+            <div>
+              <p class="font-semibold text-sm" style={`color: ${siteConfig.colors.primaryDark}`}>{t.author}</p>
+              <p class="text-xs text-gray-400">{t.country}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- italki link -->
+    <div class="text-center mt-8 reveal">
+      <a
+        href={testimonials.italkiUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline inline-flex items-center gap-2 font-medium text-sm"
+        style={`color: ${siteConfig.colors.primary}`}
+      >
+        See all {testimonials.totalReviews} reviews on italki
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+---
+import { siteConfig } from "../config";
+---
+
+<!-- Floating pill nav -->
+<header
+  id="floating-header"
+  class="fixed top-4 left-1/2 -translate-x-1/2 z-50 opacity-0 pointer-events-none"
+>
+  <nav
+    class="flex items-center gap-1 px-2 py-2 rounded-full shadow-lg border border-white/20"
+    style={`background: rgba(15, 43, 76, 0.85); backdrop-filter: blur(12px);`}
+  >
+    <a href="#about" class="px-3 py-1.5 text-sm text-white/80 hover:text-white rounded-full hover:bg-white/10 transition-colors">About</a>
+    <a href="#languages" class="px-3 py-1.5 text-sm text-white/80 hover:text-white rounded-full hover:bg-white/10 transition-colors">Languages</a>
+    <a href="#reviews" class="px-3 py-1.5 text-sm text-white/80 hover:text-white rounded-full hover:bg-white/10 transition-colors">Reviews</a>
+    <a href="#services" class="px-3 py-1.5 text-sm text-white/80 hover:text-white rounded-full hover:bg-white/10 transition-colors">Services</a>
+    <a
+      href={siteConfig.bookingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="px-4 py-1.5 text-sm font-semibold rounded-full transition-colors"
+      style={`background-color: ${siteConfig.colors.accent}; color: ${siteConfig.colors.primaryDark};`}
+    >Book</a>
+  </nav>
+</header>
+
+<script>
+  const header = document.getElementById('floating-header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 400) {
+      header?.classList.remove('opacity-0', 'pointer-events-none');
+      header?.classList.add('header-visible', 'pointer-events-auto');
+    } else {
+      header?.classList.add('opacity-0', 'pointer-events-none');
+      header?.classList.remove('header-visible', 'pointer-events-auto');
+    }
+    lastScroll = currentScroll;
+  });
+</script>

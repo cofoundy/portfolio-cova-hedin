@@ -1,0 +1,44 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="about" class="py-16 md:py-20" style={`background-color: ${siteConfig.colors.surface}`}>
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+      <!-- Bio Text -->
+      <div class="md:col-span-7 reveal">
+        <p class="font-mono-accent text-xs tracking-widest uppercase mb-3" style={`color: ${siteConfig.colors.primary}`}>
+          About Me
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-6" style={`color: ${siteConfig.colors.primaryDark}`}>
+          A Swedish Latina in Italy
+        </h2>
+
+        <div class="space-y-4 text-gray-600 leading-relaxed text-base md:text-lg">
+          {siteConfig.about.paragraphs.map((p: string) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        <p class="mt-4 text-gray-600 leading-relaxed text-base md:text-lg">
+          {siteConfig.collaborationTagline}
+        </p>
+      </div>
+
+      <!-- Pull Quote -->
+      <div class="md:col-span-5 flex items-center reveal-right stagger-2">
+        <div
+          class="quote-float w-full p-8 rounded-2xl border-l-4"
+          style={`background-color: ${siteConfig.colors.surfaceLight}; border-color: ${siteConfig.colors.accent}; box-shadow: 0 8px 32px -8px rgba(15, 43, 76, 0.08);`}
+        >
+          <p class="text-xl md:text-2xl italic leading-relaxed" style={`color: ${siteConfig.colors.primaryDark}; font-family: 'DM Serif Display', serif;`}>
+            &ldquo;{siteConfig.about.quote}&rdquo;
+          </p>
+          <p class="mt-4 text-sm font-medium" style={`color: ${siteConfig.colors.primary}`}>
+            &mdash; Cova Hedin
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

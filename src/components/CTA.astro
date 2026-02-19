@@ -1,0 +1,33 @@
+---
+import { siteConfig } from "../config";
+---
+
+<section id="contact" class="py-16 md:py-20" style={`background-color: ${siteConfig.colors.primaryDark}`}>
+  <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center reveal">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+      {siteConfig.cta.title}
+    </h2>
+    <p class="text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto">
+      {siteConfig.cta.description}
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={siteConfig.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-hover inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base shadow-lg"
+        style={`background-color: ${siteConfig.colors.accent}; color: ${siteConfig.colors.primaryDark};`}
+      >
+        &#x1F1F8;&#x1F1EA; {siteConfig.cta.bookButtonText}
+      </a>
+      <a
+        href={`mailto:${siteConfig.social.email}?subject=${encodeURIComponent(siteConfig.cta.emailSubject)}`}
+        class="btn-hover inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base border-2 text-white"
+        style={`border-color: ${siteConfig.colors.accent};`}
+      >
+        &#x1F4BC; {siteConfig.cta.collabButtonText}
+      </a>
+    </div>
+  </div>
+</section>
