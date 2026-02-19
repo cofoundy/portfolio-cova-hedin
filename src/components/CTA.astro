@@ -2,16 +2,36 @@
 import { siteConfig } from "../config";
 ---
 
-<section id="contact" class="py-16 md:py-20" style={`background-color: ${siteConfig.colors.primaryDark}`}>
-  <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center reveal">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-      {siteConfig.cta.title}
+<section id="contact" class="py-16 md:py-20 relative overflow-hidden" style={`background-color: ${siteConfig.colors.surface}`}>
+  <!-- Decorative Swedish cross pattern -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full" style={`background: radial-gradient(circle, ${siteConfig.colors.accent}08 0%, transparent 70%);`}></div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center relative reveal">
+    <p class="font-mono-accent text-xs tracking-[0.25em] uppercase mb-3" style={`color: ${siteConfig.colors.accent}`}>
+      Let's start
+    </p>
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight" style={`color: ${siteConfig.colors.primaryDark}`}>
+      Ready to learn<br/>Swedish?
     </h2>
-    <p class="text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto">
+    <p class="mt-4 text-gray-500 text-base md:text-lg max-w-md mx-auto">
       {siteConfig.cta.description}
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <!-- Service types as pills -->
+    <div class="mt-8 flex flex-wrap justify-center gap-2">
+      {siteConfig.services.map((s: any) => (
+        <span
+          class="px-4 py-2 rounded-full text-sm font-medium"
+          style={`background-color: ${siteConfig.colors.primaryDark}06; color: ${siteConfig.colors.primaryDark};`}
+        >
+          {s.title}
+        </span>
+      ))}
+    </div>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
       <a
         href={siteConfig.bookingUrl}
         target="_blank"
@@ -19,15 +39,19 @@ import { siteConfig } from "../config";
         class="btn-hover inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base shadow-lg"
         style={`background-color: ${siteConfig.colors.accent}; color: ${siteConfig.colors.primaryDark};`}
       >
-        &#x1F1F8;&#x1F1EA; {siteConfig.cta.bookButtonText}
+        Book a Lesson &#x2192;
       </a>
       <a
         href={`mailto:${siteConfig.social.email}?subject=${encodeURIComponent(siteConfig.cta.emailSubject)}`}
-        class="btn-hover inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base border-2 text-white"
-        style={`border-color: ${siteConfig.colors.accent};`}
+        class="btn-hover inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-base border-2"
+        style={`border-color: ${siteConfig.colors.primaryDark}20; color: ${siteConfig.colors.primaryDark};`}
       >
-        &#x1F4BC; {siteConfig.cta.collabButtonText}
+        Work with Me
       </a>
     </div>
+
+    <p class="mt-6 text-xs text-gray-400 font-mono-accent">
+      {siteConfig.social.email}
+    </p>
   </div>
 </section>

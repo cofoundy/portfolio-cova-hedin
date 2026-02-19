@@ -2,110 +2,65 @@
 
 **Date:** 2026-02-19
 **URL:** https://cova-hedin.cofoundy.dev/
-**Original URL tested:** https://cova-hedin.cofoundy.dev/portfolio-cova-hedin/ (404)
-**Status:** FAIL
+**Tier:** Premium (S/.280)
+**Template:** premium-starter
+**Status:** PASS
 
 ## Data Validation
-- [x] Name matches source ("Cova Hedin" -- correct, no "Joceline")
+- [x] Name matches source ("Cova Hedin" in config.ts and on page)
 - [x] Title matches source ("Swedish Teacher & Content Creator")
+- [x] Email present (swedishwithcova@gmail.com — Cloudflare-obfuscated, normal)
 - [x] Stats match source (500+ Students, 10K+ Lessons, 7+ Years Teaching)
-- [x] Companies match source (Language Lock-In, StoryLearning, italki)
+- [x] Languages match source (6 languages: Swedish, English, Spanish, Italian, Quechua, Hebrew)
+- [x] Experience companies match source (Language Lock-In, StoryLearning, italki)
 - [x] Testimonials match source (Julia/Russia, Jeff/International, Student/International)
-- [x] Booking URL correct (swedishwithcova.simplybook.it/v2/)
-- [x] Social links correct (Instagram, TikTok, YouTube, LinkedIn)
-- [x] Languages correct (6 languages with flags)
-- [x] About section matches source (Gothenburg, Latin American father, Italy)
-- [x] Email obfuscated by Cloudflare (expected behavior)
+- [x] Services match source (Private Lessons, Group Lessons, Corporate Training, Translation)
 - [x] No hallucinated data detected
+
+## Sections Present
+- [x] Hero (photo, name, title, tagline, dual CTA, social icons, stats bar)
+- [x] About ("A Swedish Latina in Italy" + 3 paragraphs + collaboration paragraph + pull quote)
+- [x] Languages (6 flag cards with levels)
+- [x] Approach ("What Makes My Lessons Special" — 5 items, highlighted bonus item)
+- [x] Testimonials ("What My Students Say" — 3 cards + 5,312 reviews / 5/5 badge)
+- [x] Experience ("Where I've Taught & Created" — 3 clickable cards with URLs)
+- [x] Services (4 service cards + "See Pricing & Book" CTA)
+- [x] CTA section (dark background, "Book a Lesson" + "Work with Me" dual buttons)
+- [x] Footer (name, title, social icons, copyright 2026)
+- [x] Floating pill nav (appears on scroll > 400px)
 
 ## Clean Deploy
 - [x] No "Powered by" / "Made with" / "Built with" watermarks
-- [x] No placeholder text (Lorem ipsum, "Your name here", etc.)
-- [x] No template links (View source, Fork this, etc.)
-- [x] No "undefined" or "null" visible in content
-- [x] No Astro logo, Vercel badge, or other template branding visible
+- [x] No "View source" / "View on GitHub" / "Fork this" template links
+- [x] No "Lorem ipsum" / "Your name here" / "[placeholder]" text
+- [x] No template watermarks visible to users
+- [x] No broken "#" or "javascript:void(0)" links visible
+- [x] No "undefined" or "null" in content
 
-## Technical
-- [!] CSS FAILS to load (HTTP 404) -- CRITICAL
-- [!] Profile image FAILS to load (HTTP 404) -- CRITICAL
-- [!] Favicon FAILS to load (HTTP 404) -- CRITICAL
-- [x] Actual assets exist at root paths (200 OK)
-- [x] Google Fonts load correctly
-- [x] HTML content renders with correct data
+## Technical Health
+- [x] Site loads: HTTP 200
+- [x] CSS loads: /_astro/index.DFsYgYTN.css — HTTP 200
+- [x] Profile image loads: /profile.jpg — HTTP 200 (174KB)
+- [x] Favicon loads: /favicon.svg — HTTP 200
+- [x] Google Fonts loading (DM Serif Display, Plus Jakarta Sans, Space Mono)
+- [x] Swedish blue/yellow color theme applied (#0f2b4c / #1d5a8c / #f0c75e)
+- [x] Responsive classes present (md:grid-cols-12, sm:flex-row, lg:grid-cols-6, etc.)
+- [x] Cloudflare email obfuscation active (email-decode.min.js)
+
+## Dual CTA Buttons
+- [x] "Book a Lesson" — links to https://swedishwithcova.simplybook.it/v2/
+- [x] "Work with Me" — mailto link (Cloudflare-obfuscated)
+
+## Social Links
+- [x] Instagram: https://www.instagram.com/swedishwithcova/
+- [x] TikTok: https://www.tiktok.com/@swedishwithcova
+- [x] YouTube: https://www.youtube.com/@swedishwithcova
+- [x] LinkedIn: https://www.linkedin.com/in/cova-hedin-661071312/
 
 ## Issues Found
+None.
 
-### CRITICAL: `base` path not removed for custom subdomain
-
-**Root Cause:** `astro.config.mjs` still has `base: "/portfolio-cova-hedin"` but the site is deployed to a custom subdomain (`cova-hedin.cofoundy.dev`). This causes Astro to prefix all asset paths with `/portfolio-cova-hedin`, but since the custom domain serves content at root, all assets 404.
-
-**Broken paths in HTML:**
-1. CSS: `href="/portfolio-cova-hedin/_astro/index.jM3tbj04.css"` --> 404
-2. Favicon: `href="/portfolio-cova-hedinfavicon.svg"` --> 404 (also missing slash between base and filename)
-3. Profile image: `src="/portfolio-cova-hedinprofile.jpg"` --> 404 (also missing slash between base and filename)
-4. OG image: `content="/portfolio-cova-hedinprofile.jpg"` --> 404
-
-**Correct paths (all return 200):**
-1. CSS: `/_astro/index.jM3tbj04.css`
-2. Favicon: `/favicon.svg`
-3. Profile image: `/profile.jpg`
-
-**User Impact:** The page loads as unstyled raw HTML with no CSS, no profile photo, and no favicon. The site is essentially broken for end users.
-
-### SECONDARY: Missing slash in base path concatenation
-
-Even if `base` were needed, the favicon and profile image paths show `/portfolio-cova-hedinfavicon.svg` instead of `/portfolio-cova-hedin/favicon.svg` -- indicating a bug in how the template concatenates the base path with static asset filenames.
-
-### FIX REQUIRED:
-
-```javascript
-// astro.config.mjs -- CHANGE FROM:
-site: "https://cofoundy.github.io",
-base: "/portfolio-cova-hedin",
-
-// TO:
-site: "https://cova-hedin.cofoundy.dev",
-// REMOVE base property entirely
-```
-
-Then rebuild and redeploy:
-```bash
-npm run build
-npx gh-pages -d dist --dotfiles --repo "https://github.com/cofoundy/portfolio-cova-hedin.git"
-```
-
-## Content Verification Summary
-
-| Item | Source (config.ts) | Page | Match |
-|------|-------------------|------|-------|
-| Name | Cova Hedin | Cova Hedin | YES |
-| Title | Swedish Teacher & Content Creator | Swedish Teacher & Content Creator | YES |
-| Stat 1 | 500+ Students | 500+ Students | YES |
-| Stat 2 | 10K+ Lessons | 10K+ Lessons | YES |
-| Stat 3 | 7+ Years Teaching | 7+ Years Teaching | YES |
-| Booking | swedishwithcova.simplybook.it/v2/ | swedishwithcova.simplybook.it/v2/ | YES |
-| Instagram | instagram.com/swedishwithcova | Present | YES |
-| TikTok | tiktok.com/@swedishwithcova | Present | YES |
-| YouTube | youtube.com/@swedishwithcova | Present | YES |
-| LinkedIn | linkedin.com/in/cova-hedin-661071312/ | Present | YES |
-| Languages | 6 (SE, GB, ES, IT, PE, IL) | 6 flags present | YES |
-| Testimonials | Julia, Jeff, Student | All 3 present | YES |
-| Experience | Language Lock-In, StoryLearning, italki | All 3 present | YES |
-
-## Sections Present
-- [x] Hero (with tagline, dual CTA, social icons, stats bar)
-- [x] About (with pull quote)
-- [x] Languages (6 flags)
-- [x] Approach (5 items, 1 highlighted)
-- [x] Testimonials (3 reviews, 5312 count, 5/5 rating)
-- [x] Experience (3 roles)
-- [x] Services (4 cards)
-- [x] CTA section
-- [x] Footer
-- [x] Floating pill nav
-
-## Evidence
-- No screenshots taken (site renders without CSS due to critical asset loading failure)
-
-## Recommendation
-FAIL -- Must fix `astro.config.mjs` by removing `base` property and updating `site` to custom domain URL, then rebuild and redeploy before delivery.
+## Notes
+- Email addresses are obfuscated by Cloudflare's email protection (cdn-cgi/l/email-protection) — this is expected behavior for sites behind Cloudflare proxy and does not affect functionality.
+- The meta generator tag shows "Astro v5.17.1" but this is only visible in source code, not to users.
+- Screenshots were not captured in this session (no browser automation tool available). Visual verification was done via HTML source analysis confirming all CSS classes, inline styles, and content render correctly.

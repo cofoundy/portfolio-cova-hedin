@@ -1,29 +1,66 @@
 ---
 import { siteConfig } from "../config";
+
+// Proficiency levels mapped to dot counts (out of 5)
+const proficiencyDots: Record<string, number> = {
+  "Native": 5,
+  "Fluent": 4,
+  "Conversational": 3,
+};
 ---
 
 <section id="languages" class="py-16 md:py-20" style={`background-color: ${siteConfig.colors.surfaceLight}`}>
-  <div class="max-w-6xl mx-auto px-6 lg:px-8">
-    <div class="text-center mb-12 reveal">
-      <p class="font-mono-accent text-xs tracking-widest uppercase mb-3" style={`color: ${siteConfig.colors.primary}`}>
-        Specialties
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 reveal">
+      <div>
+        <p class="font-mono-accent text-xs tracking-[0.25em] uppercase mb-2" style={`color: ${siteConfig.colors.accent}`}>
+          Polyglot
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold" style={`color: ${siteConfig.colors.primaryDark}`}>
+          I teach in your language
+        </h2>
+      </div>
+      <p class="text-gray-400 text-sm mt-2 md:mt-0 max-w-xs">
+        Speaking {siteConfig.languages.length} languages helps me understand what it's like to learn a new one.
       </p>
-      <h2 class="text-3xl md:text-4xl font-bold" style={`color: ${siteConfig.colors.primaryDark}`}>
-        Languages I Speak
-      </h2>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      {siteConfig.languages.map((lang: any, i: number) => (
-        <div
-          class={`lang-card reveal-scale stagger-${i + 1} text-center p-6 rounded-2xl border-2 cursor-default`}
-          style={`background-color: ${siteConfig.colors.surfaceLight}; border-color: ${siteConfig.colors.primaryDark}10;`}
-        >
-          <span class="text-4xl md:text-5xl block mb-3">{lang.flag}</span>
-          <p class="font-semibold text-base" style={`color: ${siteConfig.colors.primaryDark}`}>{lang.name}</p>
-          <p class="font-mono-accent text-xs mt-1" style={`color: ${siteConfig.colors.primary}`}>{lang.level}</p>
-        </div>
-      ))}
+    <!-- Language proficiency rows -->
+    <div class="space-y-0">
+      {siteConfig.languages.map((lang: any, i: number) => {
+        const dots = proficiencyDots[lang.level] || 3;
+        return (
+          <div
+            class={`reveal stagger-${Math.min(i + 1, 6)} group flex items-center gap-4 md:gap-6 py-5 border-b transition-colors`}
+            style={`border-color: ${siteConfig.colors.primaryDark}08;`}
+          >
+            <!-- Flag -->
+            <span class="text-2xl md:text-3xl w-10 text-center shrink-0">{lang.flag}</span>
+
+            <!-- Name -->
+            <span class="text-base md:text-lg font-semibold w-24 md:w-32" style={`color: ${siteConfig.colors.primaryDark}`}>
+              {lang.name}
+            </span>
+
+            <!-- Proficiency dots -->
+            <div class="flex gap-1.5 flex-1">
+              {Array.from({ length: 5 }).map((_, d) => (
+                <div
+                  class="w-3 h-3 md:w-3.5 md:h-3.5 rounded-full transition-all duration-300"
+                  style={d < dots
+                    ? `background-color: ${d < 4 ? siteConfig.colors.primary : siteConfig.colors.accent};`
+                    : `background-color: ${siteConfig.colors.primaryDark}10;`}
+                />
+              ))}
+            </div>
+
+            <!-- Level label -->
+            <span class="font-mono-accent text-xs tracking-wider text-gray-400 hidden sm:block">
+              {lang.level}
+            </span>
+          </div>
+        );
+      })}
     </div>
   </div>
 </section>
