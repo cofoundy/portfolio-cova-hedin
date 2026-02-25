@@ -56,9 +56,7 @@ import { siteConfig } from "../config";
           </p>
         </div>
 
-        <p class="hero-description mt-6 text-base md:text-lg text-gray-600 leading-relaxed max-w-lg">
-          {siteConfig.tagline}
-        </p>
+        <p class="hero-description mt-6 text-base md:text-lg text-gray-600 leading-relaxed max-w-lg" set:html={siteConfig.tagline.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
 
         <!-- Dual CTA -->
         <div class="hero-cta mt-8 flex flex-col sm:flex-row gap-3">

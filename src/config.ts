@@ -2,8 +2,8 @@ export const siteConfig = {
   name: "Cova Hedin",
   title: "Swedish Teacher & Content Creator",
   description: "Learn Swedish with Cova — structured, visual, and engaging training from a native speaker with 10,000+ lessons and 5,312 five-star reviews.",
-  tagline: "Ready to learn Swedish? I help students go from zero to confident, natural communication through structured, visual, and engaging training.",
-  collaborationTagline: "I also collaborate with companies to design customized Swedish programs, develop fun content, and create language solutions tailored to their teams, platforms, or audiences.",
+  tagline: "Ready to speak Swedish with confidence? I take students from zero to fluent through structured, visual, and highly engaging training. Let's build your new life in Swedish! \u{1F1F8}\u{1F1EA}\u{2728}",
+  collaborationTagline: "Additionally, **I collaborate with international companies** to develop courses, educational materials, and language solutions \u{1F4DA}\u{1F4BB}.",
 
   colors: {
     primaryDark: "#0f2b4c",
@@ -32,10 +32,11 @@ export const siteConfig = {
 
   about: {
     paragraphs: [
-      "I'm a Swedish language educator with over seven years of experience teaching students worldwide. I've worked on international language platforms and created a full Swedish course for StoryLearning.",
-      "I was born in Gothenburg to a Swedish mother and a Latin American father. I now live in Italy and speak five languages. I deeply understand what it means to build a life in another language.",
-      "I'm Head Teacher and Course Creator at Language Lock-In, where I design structured, results-driven Swedish programs for professionals, students, and serious learners. I work with all levels, from absolute beginners to advanced students.",
+      "**With over seven years of experience,** I help students and professionals worldwide master the Swedish language. Beyond my private practice, I am the creator of the comprehensive Swedish curriculum for **StoryLearning\u{00AE}**, a leader in language education \u{1F1F8}\u{1F1EA}.",
+      "**Born in Gothenburg** to a Swedish mother and a Latin American father, and currently based in Italy, I speak six languages. I understand what it means to build a life in another language \u{1F1EE}\u{1F1F9}.",
+      "As a **Head Teacher and Course Creator**, I design structured programs for all levels, from absolute beginners to advanced learners. I also mentor fellow Swedish educators, helping them refine their methods to teach more effectively \u{1F4DA}.",
     ],
+    contentCreator: "Alongside my teaching, **I am a Swedish content creator** sharing lifestyle, travel, languages, and Swedish culture through Scandinavian-inspired content for a global audience \u{2728}",
     quote: "Learning Swedish should be effective, structured, and enjoyable — not overwhelming.",
   },
 
@@ -67,14 +68,14 @@ export const siteConfig = {
         country: "Russia",
       },
       {
-        text: "I've improved tremendously studying with Cova. She's one of the best teachers I know, and her content on social media or for studying is easy to follow. She's made learning Swedish so much more enjoyable for me.",
+        text: "She is enthusiastic about teaching and shows this through her creativity, how she uses conversation as a teaching tool, and her adaptability. The materials she creates are colorful and fun.",
         author: "Jeff",
-        country: "International",
+        country: "Canada",
       },
       {
-        text: "She is enthusiastic about teaching and shows this through her creativity, how she uses conversation as a teaching tool, and her adaptability. The materials she creates are colorful and fun.",
-        author: "Student",
-        country: "International",
+        text: "I've improved tremendously studying with Cova. She's one of the best teachers I know, and her content on social media or for studying is easy to follow. She's made learning Swedish so much more enjoyable for me.",
+        author: "Christina",
+        country: "South Korea",
       },
     ],
     italkiUrl: "https://www.italki.com/en/teacher/5947827",
@@ -129,7 +130,7 @@ export const siteConfig = {
 
   cta: {
     title: "Ready to start learning Swedish? \u{1F1F8}\u{1F1EA}",
-    description: "Whether you're a complete beginner or looking to refine your skills, I'd love to help you on your Swedish journey.",
+    description: "Whether you're a complete beginner or looking to refine your skills, I'd love to help you on your Swedish journey. \u{1F1F8}\u{1F1EA}",
     bookButtonText: "Book a Lesson",
     collabButtonText: "Work with Me",
     emailSubject: "Collaboration Inquiry — Swedish with Cova",

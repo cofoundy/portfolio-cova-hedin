@@ -16,13 +16,15 @@ import { siteConfig } from "../config";
 
         <div class="space-y-4 text-gray-600 leading-relaxed text-base md:text-lg">
           {siteConfig.about.paragraphs.map((p: string) => (
-            <p>{p}</p>
+            <p set:html={p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
           ))}
         </div>
 
-        <p class="mt-4 text-gray-600 leading-relaxed text-base md:text-lg">
-          {siteConfig.collaborationTagline}
-        </p>
+        {siteConfig.about.contentCreator && (
+          <p class="mt-4 text-gray-600 leading-relaxed text-base md:text-lg" set:html={siteConfig.about.contentCreator.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
+        )}
+
+        <p class="mt-4 text-gray-600 leading-relaxed text-base md:text-lg" set:html={siteConfig.collaborationTagline.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
       </div>
 
       <!-- Pull Quote -->
