@@ -2,8 +2,8 @@ export const siteConfig = {
   name: "Cova Hedin",
   title: "Swedish Teacher & Content Creator",
   description: "Learn Swedish with Cova — structured, visual, and engaging training from a native speaker with 10,000+ lessons and 5,312 five-star reviews.",
-  tagline: "Ready to speak Swedish with confidence? I take students from zero to fluent through structured, visual, and highly engaging training. Let's build your new life in Swedish! \u{1F1F8}\u{1F1EA}\u{2728}",
-  collaborationTagline: "Additionally, **I collaborate with international companies** to develop courses, educational materials, and language solutions \u{1F4DA}\u{1F4BB}.",
+  tagline: "Ready to speak Swedish with confidence?\u{00A0}I take students from zero to fluent, through structured, visual, and highly engaging training. Let's build your new life in Swedish! \u{1F1F8}\u{1F1EA}\u{2728}",
+  collaborationTagline: "Additionally, **I collaborate with international companies** to develop courses, educational materials, and language solutions. \u{1F4DA}\u{1F4BB}",
 
   colors: {
     primaryDark: "#0f2b4c",
@@ -32,11 +32,11 @@ export const siteConfig = {
 
   about: {
     paragraphs: [
-      "**With over seven years of experience,** I help students and professionals worldwide master the Swedish language. Beyond my private practice, I am the creator of the comprehensive Swedish curriculum for **StoryLearning\u{00AE}**, a leader in language education \u{1F1F8}\u{1F1EA}.",
-      "**Born in Gothenburg** to a Swedish mother and a Latin American father, and currently based in Italy, I speak six languages. I understand what it means to build a life in another language \u{1F1EE}\u{1F1F9}.",
-      "As a **Head Teacher and Course Creator**, I design structured programs for all levels, from absolute beginners to advanced learners. I also mentor fellow Swedish educators, helping them refine their methods to teach more effectively \u{1F4DA}.",
+      "**With over seven years of experience,** I help students and professionals worldwide master the Swedish language. Beyond my private practice, I am the creator of the comprehensive Swedish curriculum for **StoryLearning\u{00AE}**, a leader in language education. \u{1F1F8}\u{1F1EA}",
+      "**Born in Gothenburg** to a Swedish mother and a Latin American father, and currently based in Italy, I speak six languages. I understand what it means to build a life in another language. \u{1F1EE}\u{1F1F9}",
+      "As a **Head Teacher and Course Creator**, I design structured programs for all levels, from absolute beginners to advanced learners. I also mentor fellow Swedish educators, helping them refine their methods to teach more effectively. \u{1F4DA}",
     ],
-    contentCreator: "Alongside my teaching, **I am a Swedish content creator** sharing lifestyle, travel, languages, and Swedish culture through Scandinavian-inspired content for a global audience \u{2728}",
+    contentCreator: "Alongside my teaching, **I am a Swedish content creator** sharing lifestyle, travel, languages, and Swedish culture through Scandinavian-inspired content for a global audience. \u{2728}",
     quote: "Learning Swedish should be effective, structured, and enjoyable — not overwhelming.",
   },
 
@@ -117,8 +117,8 @@ export const siteConfig = {
       description: "Small groups of up to 3 students. Interactive and conversation-focused.",
     },
     {
-      icon: "building",
-      title: "Corporate Training",
+      icon: "content",
+      title: "Content Creation",
       description: "Customized Swedish programs for companies and teams moving to Sweden.",
     },
     {
