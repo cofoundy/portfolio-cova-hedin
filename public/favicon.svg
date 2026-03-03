@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#0f2b4c"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#f0c75e">CH</text>
+  <!-- Swedish cross behind letters -->
+  <rect x="0" y="12" width="32" height="8" fill="#f0c75e"/>
+  <rect x="10" y="0" width="8" height="32" fill="#f0c75e"/>
+  <!-- C letter - larger -->
+  <text x="8.5" y="23.5" text-anchor="middle" font-family="Georgia, 'DM Serif Display', serif" font-size="24" font-weight="700" fill="#0f2b4c">C</text>
+  <!-- H letter - larger -->
+  <text x="23.5" y="23.5" text-anchor="middle" font-family="Georgia, 'DM Serif Display', serif" font-size="24" font-weight="700" fill="#0f2b4c">H</text>
 </svg>
